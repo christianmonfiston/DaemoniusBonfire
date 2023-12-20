@@ -108,19 +108,25 @@ public class Controller : MonoBehaviour
 	}
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-
 		if (other.gameObject.tag == "floor")
 		{
 			//calculates angle so you only get it iff its on the floor
 			Vector3 hit = other.contacts[0].normal;
 			float angle = Vector3.Angle(hit, Vector3.up);
-			if (Mathf.Approximately(angle, 90)) //side
+			if (Mathf.Approximately(angle, 0))  //if floor collsion
 			{
-				return;
+				ResetJumps();
+				isGrounded = true;
 			}
-			//if its not a side hit. reset and move on
-			ResetJumps();
-			isGrounded = true;
+			else if (Mathf.Approximately(angle, 180))  //if roof collison
+			{
+				//Up
+				if (isJumping)
+				{
+					jumpState = 2; //modify to falling state if jumping active
+
+				}
+			}
 		}
 	}
 }
