@@ -8,24 +8,13 @@ public class Controller : MonoBehaviour
 	private Vector2 velocity; //players x, y velocity
 	public bool isGrounded; //is grounded
 	public bool isJumping; // isJumping
-	public int time;
+	public bool isFalling; //if falling
+	public int time; //time of jump
 
-	public const float FLOORY = -1.68f; //temporary. we are going to have to add platforms. so this will change if on platform
 	void Update()
 	{
 		Vector2 playerLocation = GetComponent<Transform>().position;
-		//temporary. 
-		// we also set the is grounded location in the onPlayerCollide. or if player isnt jumping
-
-		if (GetComponent<Rigidbody2D>().velocity.y == 0)
-		{
-			isGrounded = true;
-		}
-		else
-		{
-			isGrounded = false;
-		}
-
+		isGrounded = GetComponent<Rigidbody2D>().velocity.y == 0;
 		if (Input.GetKey(KeyCode.A)) //left
 		{
 			playerLocation.x -= velocity.x * Time.deltaTime;
@@ -34,17 +23,14 @@ public class Controller : MonoBehaviour
 		}
 		if (Input.GetKey(KeyCode.S)) //down 
 		{
-
 			if (isJumping)
 			{
-				if (isGrounded)
-				{
-					return;
-				}
-				playerLocation.y -= velocity.y * Time.deltaTime;
-				GetComponent<Transform>().position = playerLocation;
-			}
 
+				Vector2 v = GetComponent<Rigidbody2D>().velocity;
+				v.y -= velocity.y * Time.deltaTime;
+				isFalling = true;
+				GetComponent<Rigidbody2D>().velocity = v;
+			}
 
 		}
 		if (Input.GetKey(KeyCode.D)) //right
@@ -58,8 +44,6 @@ public class Controller : MonoBehaviour
 			{
 				isJumping = true;
 			}
-			//isIfJumping
-
 		}
 		if (isJumping)
 		{
@@ -67,22 +51,29 @@ public class Controller : MonoBehaviour
 		}
 
 	}
+	/// <summary>
+	/// handles the jump of the player
+	/// </summary>
+	/// <param name="estimateFrames"> estimated time of the Jump. either 60 </param>
+	/// <param name="playerLocation"></param> location of the player<summary>
 	private void HandleJump(int estimateFrames, Vector2 playerLocation)
 	{
-		if (time <= estimateFrames / 2)
+		if (time <= estimateFrames / 2 && !isFalling)
 		{
 			playerLocation.y += velocity.y * Time.deltaTime;
 			GetComponent<Transform>().position = playerLocation;
 			Vector2 v = GetComponent<Rigidbody2D>().velocity;
 			v.y += velocity.y * Time.deltaTime;
+			Debug.Log(v.y);
 			GetComponent<Rigidbody2D>().velocity = v;
 
 		}
-		else
+		else //ifFalling
 		{
+			isFalling = true;
 			playerLocation.y -= velocity.y * Time.deltaTime;
 			Vector2 v = GetComponent<Rigidbody2D>().velocity;
-			v.y -= velocity.y * Time.deltaTime;
+			v.y = (velocity.y - v.y) * Time.deltaTime;
 			GetComponent<Rigidbody2D>().velocity = v;
 			GetComponent<Transform>().position = playerLocation;
 		}
@@ -90,6 +81,7 @@ public class Controller : MonoBehaviour
 		{
 			isJumping = false;
 			time = 0;
+			isFalling = false;
 			return;
 		}
 		time++;
@@ -98,14 +90,14 @@ public class Controller : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 
+
 		if (other.gameObject.tag == "floor")
 		{
+			Debug.Log("test");
 			isGrounded = true;
-			Debug.Log("isGrounded");
-		}
-		else
-		{
-			isGrounded = false;
+			isJumping = false;
+			time = 0;
+			isFalling = false;
 		}
 	}
 }

@@ -306,6 +306,7 @@ MonoBehaviour:
   velocity: {x: 5, y: 10}
   isGrounded: 0
   isJumping: 0
+  isFalling: 0
   time: 0
 --- !u!61 &1696050489
 BoxCollider2D:
@@ -368,7 +369,7 @@ GameObject:
   - component: {fileID: 2013717769}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
