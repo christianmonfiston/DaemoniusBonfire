@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
 	public bool isGrounded; //is grounded
 	public bool isJumping; // isJumping
 	public bool isFalling; //if falling
-	public int time; //time of jump
+	public int time; //time of jump (in frames 1 jump = 60 frames)
 
 	void Update()
 	{
