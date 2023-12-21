@@ -83,15 +83,6 @@ public class Controller : MonoBehaviour
 			GetComponent<Transform>().position = playerLocation;
 			GetComponent<Rigidbody2D>().velocity = v;
 		}
-		//else if(jumpState == 2)
-		//{
-		//	
-		//	t++;
-		//	if(t == 10){
-		//		jumpState = 3;
-		//		t = 0;
-		//	}
-		//}
 		else if (jumpState == 2)
 		{
 			//falling
