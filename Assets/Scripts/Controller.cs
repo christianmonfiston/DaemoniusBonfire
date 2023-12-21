@@ -73,7 +73,7 @@ public class Controller : MonoBehaviour
 		{
 			if (time >= estimateFrames / 2) //change to the falling state
 			{
-				jumpState = 2;
+				jumpState = 2; //commit from neo-vim
 			}
 			//jumping
 			playerLocation.y += velocity.y * Time.deltaTime;
