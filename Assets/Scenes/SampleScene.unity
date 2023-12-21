@@ -303,9 +303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8637bf11fcb89ea4bb003f106ff1d1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 5, y: 10}
+  velocity: {x: 8, y: 5}
   isGrounded: 0
   isJumping: 0
+  time: 0
+  timePerJump: 0
+  jumpState: 1
 --- !u!61 &1696050489
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,9 +8,9 @@ public class Controller : MonoBehaviour
 	private Vector2 velocity; //players x, y velocity
 	public bool isGrounded; //is grounded
 	public bool isJumping; // isJumping
-	private int time; //time of jump (in frames 1 jump = 60 frames)
-	private int timePerJump; //this is the time per a jump. out of 60
-	private int jumpState = 1;
+	public int time; //time of jump (in frames 1 jump = 60 frames)
+	public int timePerJump; //this is the time per a jump. out of 60
+	public int jumpState = 1;
 	void Update()
 	{
 		Vector2 playerLocation = GetComponent<Transform>().position;
@@ -57,6 +57,7 @@ public class Controller : MonoBehaviour
 		}
 
 	}
+	int t = 0;
 	/// <summary>
 	/// handles the jump of the player
 	/// uses state machine. 
@@ -74,18 +75,29 @@ public class Controller : MonoBehaviour
 			if (time >= estimateFrames / 2) //change to the falling state
 			{
 				jumpState = 2; //commit from neo-vim
+				return;
 			}
 			//jumping
-			playerLocation.y += velocity.y * Time.deltaTime;
-			v.y += velocity.y * Time.deltaTime; //add on to velocity
+			playerLocation.y +=  velocity.y * Time.deltaTime + ((9.8f*(Time.deltaTime*Time.deltaTime))/2);
+			v.y += velocity.y * Time.deltaTime + ((9.8f*(Time.deltaTime*Time.deltaTime))/2);
 			GetComponent<Transform>().position = playerLocation;
 			GetComponent<Rigidbody2D>().velocity = v;
 		}
+		//else if(jumpState == 2)
+		//{
+		//	
+		//	t++;
+		//	if(t == 10){
+		//		jumpState = 3;
+		//		t = 0;
+		//	}
+		//}
 		else if (jumpState == 2)
 		{
 			//falling
-			playerLocation.y -= velocity.y * Time.deltaTime;
-			v.y = (velocity.y - v.y) * Time.deltaTime; //deduct velocity
+			playerLocation.y -= velocity.y * Time.deltaTime + ((9.8f*(Time.deltaTime*Time.deltaTime))/2);
+
+			v.y = (velocity.y - v.y) * Time.deltaTime + ((9.8f*(Time.deltaTime*Time.deltaTime))/2);
 			GetComponent<Rigidbody2D>().velocity = v;
 			GetComponent<Transform>().position = playerLocation;
 		}
@@ -110,8 +122,8 @@ public class Controller : MonoBehaviour
 	}
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == "floor")
-		{
+		if (other.gameObject.tag == "floor"){
+
 			//calculates angle so you only get it iff its on the floor
 			Vector3 hit = other.contacts[0].normal;
 			float angle = Vector3.Angle(hit, Vector3.up);
@@ -131,4 +143,5 @@ public class Controller : MonoBehaviour
 			}
 		}
 	}
+	
 }
