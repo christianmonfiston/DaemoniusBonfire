@@ -59,7 +59,9 @@ public class Controller : MonoBehaviour
 	}
 	/// <summary>
 	/// handles the jump of the player
-	/// uses state machine. 1st state is jumping 2nd state is falling. we can add a 3rd state so it can make the jumps more like a "Sine wave" rather than sharp. 
+	/// uses state machine. 
+	/// 1st state is jumping 2nd state is falling. 
+	/// we can add a 3rd state so it can make the jumps more like a "Sine wave" rather than sharp. 
 	/// </summary>
 	/// <param name="estimateFrames"> estimated time of the Jump. either 60 </param>
 	/// <param name="playerLocation"></param> location of the player<summary>
