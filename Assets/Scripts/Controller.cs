@@ -88,7 +88,7 @@ public class Controller : MonoBehaviour
 			//falling
 			playerLocation.y -= velocity.y * Time.deltaTime + ((9.8f*(Time.deltaTime*Time.deltaTime))/2);
 
-			v.y = (velocity.y - v.y) * Time.deltaTime + ((9.8f*(Time.deltaTime*Time.deltaTime))/2);
+			v.y = (velocity.y - v.y) * Time.deltaTime + ((9.8f*(Time.deltaTime*Time.deltaTime))/2); //velocity*time + ((G * time^2)/2) good formula for jumps
 			GetComponent<Rigidbody2D>().velocity = v;
 			GetComponent<Transform>().position = playerLocation;
 		}
