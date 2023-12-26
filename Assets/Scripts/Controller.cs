@@ -57,7 +57,6 @@ public class Controller : MonoBehaviour
 		}
 
 	}
-	int t = 0;
 	/// <summary>
 	/// handles the jump of the player
 	/// uses state machine. 
@@ -66,6 +65,7 @@ public class Controller : MonoBehaviour
 	/// </summary>
 	/// <param name="estimateFrames"> estimated time of the Jump. either 60 </param>
 	/// <param name="playerLocation"></param> location of the player<summary>
+	
 	private void HandleJump(int estimateFrames, Vector2 playerLocation)
 	{
 		Vector2 v = GetComponent<Rigidbody2D>().velocity; //RB velocity
@@ -104,6 +104,7 @@ public class Controller : MonoBehaviour
 	/// <summary>
 	/// resets jump states.
 	/// </summary>
+	
 	private void ResetJumps()
 	{
 		isJumping = false;
@@ -111,6 +112,7 @@ public class Controller : MonoBehaviour
 		jumpState = 1;
 		timePerJump = 0;
 	}
+	
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "floor"){
