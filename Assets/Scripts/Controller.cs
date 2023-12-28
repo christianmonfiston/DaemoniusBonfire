@@ -16,15 +16,14 @@ public class Controller : MonoBehaviour
 	{
 
 		
-		animator.SetFloat("walk",Mathf.Abs(Input.GetAxisRaw("Horizontal") * 1));
+		animator.SetFloat("walk",Mathf.Abs(Input.GetAxisRaw("Horizontal") * 1)); //I couldnt help myself T~T
 		Vector2 playerLocation = GetComponent<Transform>().position;
 		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("falling")){
 			if (Input.GetKey(KeyCode.A)) //left
 			{
+				
+				GetComponent<SpriteRenderer>().flipX = true;	//flips the X so you can get forward and backwards
 				playerLocation.x -= velocity.x * Time.deltaTime;
-				animator.SetFloat("walk",Mathf.Abs(Input.GetAxisRaw("Horizontal") * 1));
-				GetComponent<SpriteRenderer>().flipX = true;	
-
 				GetComponent<Transform>().position = playerLocation;
 
 			}
@@ -52,7 +51,7 @@ public class Controller : MonoBehaviour
 		}
 		if(Input.GetKeyDown(KeyCode.Space)){
 			
-			if (!isJumping)
+			if (!isJumping && isGrounded)
 			{
 				jumpState = 1;
 				isJumping = true;
@@ -73,8 +72,13 @@ public class Controller : MonoBehaviour
 		{
 			HandleJump(timePerJump, playerLocation);
 		}
-	Vector2 e = GetComponent<Rigidbody2D>().velocity; 
-	animator.SetBool("isJumping", isJumping);
+
+		//this handles the jump animation
+		Vector2 e = GetComponent<Rigidbody2D>().velocity; //RB velocity
+		if(!isJumping){
+			isGrounded = (int)e.y > -1; //if jumping. is grounded is set by a collison or if the jump is complete	
+		}
+		animator.SetBool("isJumping", isJumping || (int)e.y < -1); // is Jumping or is Falling
 
 	}
 	/// <summary>
@@ -145,7 +149,6 @@ public class Controller : MonoBehaviour
 			{
 				ResetJumps();
 				isGrounded = true;
-				Debug.Log("test");
 				animator.SetBool("isJumping", isJumping);
 			}
 			else if (Mathf.Approximately(angle, 180) || Mathf.Approximately(angle, 90))  //if roof collison
@@ -153,7 +156,6 @@ public class Controller : MonoBehaviour
 				//Up
 				if (isJumping)
 				{
-					Debug.Log("floor collsion");
 					jumpState = 2; //modify to falling state if jumping active
 
 				}
