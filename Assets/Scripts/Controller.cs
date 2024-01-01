@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour
 	private Vector2 velocity; //players x, y velocity
 	public bool isGrounded; //is grounded
 	public bool isJumping; // isJumping
-	public float time = 0; //time of jump (in frames 1 jump = 60 frames)
+	public float time = 1; //time of jump (in frames 1 jump = 60 frames)
 	public float timePerJump; //this is the time per a jump. out of 60
 	public int jumpState = 1;
 	public Animator animator;
@@ -62,9 +62,10 @@ public class Controller : MonoBehaviour
 		{
 			if(isJumping){
 				
-				if (timePerJump < 120)
+				if (timePerJump < 400)
 				{
-					timePerJump += 4 * Time.deltaTime; 
+					timePerJump += 4;
+					timePerJump += timePerJump * Time.deltaTime;
 				}
 			}
 		}
@@ -96,7 +97,7 @@ public class Controller : MonoBehaviour
 
 		if (jumpState == 1)
 		{
-			if((int)estimateFrames > 2){
+			if((int)estimateFrames > 1){
 				
 				if (time > (int)estimateFrames / 2) //change to the falling state
 				{
@@ -128,7 +129,7 @@ public class Controller : MonoBehaviour
 
 		
 		Debug.Log(time);
-		time += 0.5f;
+		time += 1;
 		time +=  time* Time.deltaTime;
 	}
 	/// <summary>
@@ -140,7 +141,7 @@ public class Controller : MonoBehaviour
 		isJumping = false;
 		time = 1;
 		jumpState = 1;
-		timePerJump = 0;
+		timePerJump = 1;
 	}
 	
 	private void OnCollisionEnter2D(Collision2D other)

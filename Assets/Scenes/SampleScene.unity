@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8637bf11fcb89ea4bb003f106ff1d1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 8, y: 6}
+  velocity: {x: 10, y: 8}
   isGrounded: 0
   isJumping: 0
   time: 0
