@@ -8,8 +8,8 @@ public class Controller : MonoBehaviour
 	private Vector2 velocity; //players x, y velocity
 	public bool isGrounded; //is grounded
 	public bool isJumping; // isJumping
-	public int time; //time of jump (in frames 1 jump = 60 frames)
-	public int timePerJump; //this is the time per a jump. out of 60
+	public float time = 0; //time of jump (in frames 1 jump = 60 frames)
+	public float timePerJump; //this is the time per a jump. out of 60
 	public int jumpState = 1;
 	public Animator animator;
 	void Update()
@@ -39,7 +39,7 @@ public class Controller : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.S)) //down 
 		{
-			if (isJumping && time > 3)
+			if (isJumping && time > 1)
 			{
 
 				Vector2 v = GetComponent<Rigidbody2D>().velocity;
@@ -64,7 +64,7 @@ public class Controller : MonoBehaviour
 				
 				if (timePerJump < 120)
 				{
-					timePerJump += 4;
+					timePerJump += 4 * Time.deltaTime; 
 				}
 			}
 		}
@@ -90,16 +90,19 @@ public class Controller : MonoBehaviour
 	/// <param name="estimateFrames"> estimated time of the Jump. either 60 </param>
 	/// <param name="playerLocation"></param> location of the player<summary>
 	
-	private void HandleJump(int estimateFrames, Vector2 playerLocation)
+	private void HandleJump(float estimateFrames, Vector2 playerLocation)
 	{
 		Vector2 v = GetComponent<Rigidbody2D>().velocity; //RB velocity
 
 		if (jumpState == 1)
 		{
-			if (time >= estimateFrames / 2) //change to the falling state
-			{
-				jumpState = 2; //commit from neo-vim
-				return;
+			if((int)estimateFrames > 2){
+				
+				if (time > (int)estimateFrames / 2) //change to the falling state
+				{
+					jumpState = 2; //commit from neo-vim
+					return;
+				}
 			}
 			//jumping
 			playerLocation.y +=  velocity.y * Time.deltaTime ;
@@ -122,8 +125,11 @@ public class Controller : MonoBehaviour
 			ResetJumps();
 			return;
 		}
-		time++;
 
+		
+		Debug.Log(time);
+		time += 0.5f;
+		time +=  time* Time.deltaTime;
 	}
 	/// <summary>
 	/// resets jump states.
@@ -132,7 +138,7 @@ public class Controller : MonoBehaviour
 	private void ResetJumps()
 	{
 		isJumping = false;
-		time = 0;
+		time = 1;
 		jumpState = 1;
 		timePerJump = 0;
 	}
