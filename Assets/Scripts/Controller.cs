@@ -38,11 +38,11 @@ public class Controller : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.S)) //down 
 		{
-			if (isJumping && time > 1)
+			if (isJumping && time > 30)
 			{
 
 				Vector2 v = GetComponent<Rigidbody2D>().velocity;
-				v.y -= velocity.y * Time.deltaTime;
+				v.y -= velocity.y;
 				jumpState = 2;
 				GetComponent<Rigidbody2D>().velocity = v;
 			}
