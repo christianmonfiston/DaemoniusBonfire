@@ -6,36 +6,35 @@ public class Controller : MonoBehaviour
 {
 	[SerializeField]
 	private Vector2 velocity; //players x, y velocity
+	public Rigidbody2D rb;
 	public bool isGrounded; //is grounded
 	public bool isJumping; // isJumping
 	public float time = 1; //time of jump (in frames 1 jump = 60 frames)
+	public float DashTime = 1;
+	public bool Dash = false;
 	public float timePerJump; //this is the time per a jump. out of 60
 	public int jumpState = 1;
 	public Animator animator;
+	public float targetVelocity;
 	void Update()
 	{
+		rb = GetComponent<Rigidbody2D>();
+		// animator.ResetTrigger("dash");
 
-		
-		animator.SetFloat("walk",Mathf.Abs(Input.GetAxisRaw("Horizontal") * 1)); //I couldnt help myself T~T
+		animator.SetFloat("walk", Mathf.Abs(Input.GetAxisRaw("Horizontal") * 1)); //I couldnt help myself T~T
+		targetVelocity = Input.GetAxisRaw("Horizontal") * velocity.x;
+
 		Vector2 playerLocation = GetComponent<Transform>().position;
-		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("falling")){
-			if (Input.GetKey(KeyCode.A)) //left
-			{
-				
-				GetComponent<SpriteRenderer>().flipX = true;	//flips the X so you can get forward and backwards
-				playerLocation.x -= velocity.x * Time.deltaTime;
-				GetComponent<Transform>().position = playerLocation;
-
-			}
-			if (Input.GetKey(KeyCode.D)) //right
-			{
-
-				GetComponent<SpriteRenderer>().flipX = false;	
-				playerLocation.x += velocity.x * Time.deltaTime;
-				GetComponent<Transform>().position = playerLocation;
-			}
+		rb.velocity = new Vector2(targetVelocity, rb.velocity.y);
+		if (Input.GetAxisRaw("Horizontal") == -1)
+		{
+			GetComponent<SpriteRenderer>().flipX = true;    //flips the X so you can get forward and backwards
 		}
+		if (Input.GetAxisRaw("Horizontal") == 1)
+		{
+			GetComponent<SpriteRenderer>().flipX = false;    //flips the X so you can get forward and backwards
 
+		}
 
 		if (Input.GetKey(KeyCode.S)) //down 
 		{
@@ -49,8 +48,9 @@ public class Controller : MonoBehaviour
 			}
 
 		}
-		if(Input.GetKeyDown(KeyCode.Space)){
-			
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+
 			if (!isJumping && isGrounded)
 			{
 				jumpState = 1;
@@ -60,8 +60,9 @@ public class Controller : MonoBehaviour
 		}
 		if (Input.GetKey(KeyCode.Space)) //jump
 		{
-			if(isJumping){
-				
+			if (isJumping)
+			{
+
 				if (timePerJump < 400)
 				{
 					timePerJump += 4;
@@ -76,10 +77,23 @@ public class Controller : MonoBehaviour
 
 		//this handles the jump animation
 		Vector2 e = GetComponent<Rigidbody2D>().velocity; //RB velocity
-		if(!isJumping){
+		if (!isJumping)
+		{
 			isGrounded = (int)e.y > -1; //if jumping. is grounded is set by a collison or if the jump is complete	
 		}
 		animator.SetBool("isJumping", isJumping || (int)e.y < -1); // is Jumping or is Falling
+
+
+		if (Input.GetKeyDown(KeyCode.LeftShift))
+		{
+			animator.SetBool("dash", true);
+			Dash = true;
+
+		}
+		if (Dash)
+		{
+			HandleDash(20, playerLocation);
+		}
 
 	}
 	/// <summary>
@@ -90,15 +104,39 @@ public class Controller : MonoBehaviour
 	/// </summary>
 	/// <param name="estimateFrames"> estimated time of the Jump. either 60 </param>
 	/// <param name="playerLocation"></param> location of the player<summary>
-	
+
+	public void HandleDash(float estimateFrames, Vector2 playerLocation)
+	{
+		if (DashTime > estimateFrames) //change to the falling state
+		{
+			animator.SetBool("dash", false);
+			DashTime = 0;
+			Dash = false;
+			return;
+		}
+		if (!GetComponent<SpriteRenderer>().flipX)
+		{
+			rb.velocity = new Vector2(velocity.x * 10, rb.velocity.y);
+
+		}
+		else
+		{
+			rb.velocity = new Vector2(velocity.x * -10, rb.velocity.y);
+
+		}
+		GetComponent<Transform>().position = playerLocation;
+		DashTime++;
+
+	}
 	private void HandleJump(float estimateFrames, Vector2 playerLocation)
 	{
 		Vector2 v = GetComponent<Rigidbody2D>().velocity; //RB velocity
 
 		if (jumpState == 1)
 		{
-			if((int)estimateFrames > 1){
-				
+			if ((int)estimateFrames > 1)
+			{
+
 				if (time > (int)estimateFrames / 2) //change to the falling state
 				{
 					jumpState = 2; //commit from neo-vim
@@ -106,7 +144,7 @@ public class Controller : MonoBehaviour
 				}
 			}
 			//jumping
-			playerLocation.y +=  velocity.y * Time.deltaTime ;
+			playerLocation.y += velocity.y * Time.deltaTime;
 			v.y += velocity.y * Time.deltaTime;
 			GetComponent<Transform>().position = playerLocation;
 			GetComponent<Rigidbody2D>().velocity = v;
@@ -127,15 +165,15 @@ public class Controller : MonoBehaviour
 			return;
 		}
 
-		
+
 		Debug.Log(time);
 		time += 1;
-		time +=  time* Time.deltaTime;
+		time += time * Time.deltaTime;
 	}
 	/// <summary>
 	/// resets jump states.
 	/// </summary>
-	
+
 	private void ResetJumps()
 	{
 		isJumping = false;
@@ -143,11 +181,12 @@ public class Controller : MonoBehaviour
 		jumpState = 1;
 		timePerJump = 1;
 	}
-	
+
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == "floor"){
-			
+		if (other.gameObject.tag == "floor")
+		{
+
 
 			//calculates angle so you only get it iff its on the floor
 			Vector3 hit = other.contacts[0].normal;
@@ -169,5 +208,5 @@ public class Controller : MonoBehaviour
 			}
 		}
 	}
-	
+
 }

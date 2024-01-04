@@ -286,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696050485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.49, y: -0.77, z: 0}
+  m_LocalPosition: {x: -12.2, y: -0.71, z: 0}
   m_LocalScale: {x: 5.8428006, y: 5.3767257, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -305,12 +305,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 10, y: 8}
+  rb: {fileID: 0}
   isGrounded: 0
   isJumping: 0
   time: 0
+  DashTime: 1
+  Dash: 0
   timePerJump: 0
   jumpState: 1
   animator: {fileID: 1696050489}
+  targetVelocity: 0
 --- !u!95 &1696050489
 Animator:
   serializedVersion: 3
