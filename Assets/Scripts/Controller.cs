@@ -17,7 +17,7 @@ public class Controller : MonoBehaviour
 	public Animator animator;
 	public float targetVelocity;
 	void Update()
-	{
+	{	
 		rb = GetComponent<Rigidbody2D>();
 		// animator.ResetTrigger("dash");
 
@@ -84,6 +84,7 @@ public class Controller : MonoBehaviour
 		animator.SetBool("isJumping", isJumping || (int)e.y < -1); // is Jumping or is Falling
 
 
+		// Dash code
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
 			animator.SetBool("dash", true);
@@ -95,6 +96,7 @@ public class Controller : MonoBehaviour
 			HandleDash(20, playerLocation);
 		}
 
+		
 	}
 	/// <summary>
 	/// handles the jump of the player
@@ -166,7 +168,6 @@ public class Controller : MonoBehaviour
 		}
 
 
-		Debug.Log(time);
 		time += 1;
 		time += time * Time.deltaTime;
 	}
