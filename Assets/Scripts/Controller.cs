@@ -83,6 +83,8 @@ public class Controller : MonoBehaviour
 		}
 		animator.SetBool("isJumping", isJumping || (int)e.y < -1); // is Jumping or is Falling
 
+		animator.SetFloat("Y_velocity", rb.velocity.y);
+
 
 		// Dash code
 		if (Input.GetKeyDown(KeyCode.LeftShift))
