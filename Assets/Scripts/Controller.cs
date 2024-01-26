@@ -17,7 +17,12 @@ public class Controller : MonoBehaviour
 	public Animator animator;
 	public float targetVelocity;
 	void Update()
-	{	
+	{
+		//fixing bug I notcied when paused it still allowed flipping
+		if (GameStateMachine.gameState == GameState.DEAD || GameStateMachine.gameState == GameState.PAUSED)
+		{
+			return;
+		}
 		rb = GetComponent<Rigidbody2D>();
 		// animator.ResetTrigger("dash");
 
@@ -98,7 +103,7 @@ public class Controller : MonoBehaviour
 			HandleDash(20, playerLocation);
 		}
 
-		
+
 	}
 	/// <summary>
 	/// handles the jump of the player

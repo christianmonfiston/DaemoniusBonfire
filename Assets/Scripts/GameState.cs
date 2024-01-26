@@ -1,6 +1,10 @@
-public enum GameState 
+public enum GameState
 {
-    Gameplay,
-    Paused,
-    Dead
+	GAME_PLAY,
+	PAUSED,
+	DEAD
+}
+public class GameStateMachine
+{
+	public static GameState gameState = GameState.GAME_PLAY;
 }
