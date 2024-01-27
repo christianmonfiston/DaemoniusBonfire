@@ -18,6 +18,11 @@ public class Controller : MonoBehaviour
 	public float targetVelocity;
 	void Update()
 	{
+		//fixing bug I notcied when paused it still allowed flipping
+		if (GameStateMachine.gameState == GameState.DEAD || GameStateMachine.gameState == GameState.PAUSED)
+		{
+			return;
+		}
 		rb = GetComponent<Rigidbody2D>();
 		// animator.ResetTrigger("dash");
 
@@ -65,7 +70,7 @@ public class Controller : MonoBehaviour
 
 				if (timePerJump < 400)
 				{
-					timePerJump += 4;
+					// timePerJump += 4;
 					timePerJump += timePerJump * Time.deltaTime;
 				}
 			}
@@ -83,7 +88,10 @@ public class Controller : MonoBehaviour
 		}
 		animator.SetBool("isJumping", isJumping || (int)e.y < -1); // is Jumping or is Falling
 
+		animator.SetFloat("Y_velocity", rb.velocity.y);
 
+
+		// Dash code
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
 			animator.SetBool("dash", true);
@@ -94,6 +102,7 @@ public class Controller : MonoBehaviour
 		{
 			HandleDash(20, playerLocation);
 		}
+
 
 	}
 	/// <summary>
@@ -166,7 +175,6 @@ public class Controller : MonoBehaviour
 		}
 
 
-		Debug.Log(time);
 		time += 1;
 		time += time * Time.deltaTime;
 	}
