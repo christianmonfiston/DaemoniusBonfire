@@ -1,0 +1,444 @@
+fileFormatVersion: 2
+guid: abe007bcc64e60d47b1101733a526d38
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9025506528234460423
+    second: Spritesheet Attack (Sword)_0
+  - first:
+      213: -1511296938842967582
+    second: Spritesheet Attack (Sword)_1
+  - first:
+      213: -2474757073053058048
+    second: Spritesheet Attack (Sword)_2
+  - first:
+      213: -582830837907027357
+    second: Spritesheet Attack (Sword)_3
+  - first:
+      213: -1339762371485905337
+    second: Spritesheet Attack (Sword)_4
+  - first:
+      213: -4831402013486060061
+    second: Spritesheet Attack (Sword)_5
+  - first:
+      213: -7684523494846051579
+    second: Spritesheet Attack (Sword)_6
+  - first:
+      213: -4312555474224722666
+    second: Spritesheet Attack (Sword)_7
+  - first:
+      213: 6674735681254288247
+    second: Spritesheet Attack (Sword)_8
+  - first:
+      213: -3187030195093995206
+    second: Spritesheet Attack (Sword)_9
+  - first:
+      213: -8480255549645185121
+    second: Spritesheet Attack (Sword)_10
+  - first:
+      213: -7678033440161055507
+    second: Spritesheet Attack (Sword)_11
+  - first:
+      213: -9178232307793808338
+    second: Spritesheet Attack (Sword)_12
+  - first:
+      213: -8304377050742811733
+    second: Spritesheet Attack (Sword)_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_0
+      rect:
+        serializedVersion: 2
+        x: 3082
+        y: 0
+        width: 363
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70552654e5a014d70800000000000000
+      internalID: 9025506528234460423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_1
+      rect:
+        serializedVersion: 2
+        x: 3671
+        y: 7
+        width: 390
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1312af07bc60be0800000000000000
+      internalID: -1511296938842967582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_2
+      rect:
+        serializedVersion: 2
+        x: 4278
+        y: 23
+        width: 288
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c794bcd85e7add0800000000000000
+      internalID: -2474757073053058048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_3
+      rect:
+        serializedVersion: 2
+        x: 5249
+        y: 12
+        width: 368
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a886ed07e59e7f0800000000000000
+      internalID: -582830837907027357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_4
+      rect:
+        serializedVersion: 2
+        x: 6004
+        y: 2
+        width: 417
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ec524b835386de0800000000000000
+      internalID: -1339762371485905337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_5
+      rect:
+        serializedVersion: 2
+        x: 6658
+        y: 215
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed6e03777963fcb0800000000000000
+      internalID: -4831402013486060061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_6
+      rect:
+        serializedVersion: 2
+        x: 6676
+        y: 202
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50bce8588961b5590800000000000000
+      internalID: -7684523494846051579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_7
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 12
+        width: 133
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d4ba425a9b624c0800000000000000
+      internalID: -4312555474224722666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_8
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 12
+        width: 151
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b69c2ecbc61ac50800000000000000
+      internalID: 6674735681254288247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_9
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 12
+        width: 351
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a318af45ce465c3d0800000000000000
+      internalID: -3187030195093995206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_10
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 3
+        width: 526
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f1dd60284105a80800000000000000
+      internalID: -8480255549645185121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_11
+      rect:
+        serializedVersion: 2
+        x: 2354
+        y: 3
+        width: 464
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec31a12445227590800000000000000
+      internalID: -7678033440161055507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_12
+      rect:
+        serializedVersion: 2
+        x: 4849
+        y: 15
+        width: 151
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24bfeb285e50a080800000000000000
+      internalID: -9178232307793808338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet Attack (Sword)_13
+      rect:
+        serializedVersion: 2
+        x: 6588
+        y: 6
+        width: 400
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba39191221de0cc80800000000000000
+      internalID: -8304377050742811733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
