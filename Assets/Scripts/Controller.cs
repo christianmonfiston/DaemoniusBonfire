@@ -70,7 +70,7 @@ public class Controller : MonoBehaviour
 
 				if (timePerJump < 400)
 				{
-					timePerJump += 4;
+					// timePerJump += 4;
 					timePerJump += timePerJump * Time.deltaTime;
 				}
 			}
