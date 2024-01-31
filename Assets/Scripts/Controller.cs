@@ -51,6 +51,8 @@ public class Controller : MonoBehaviour
 				jumpState = 2;
 				GetComponent<Rigidbody2D>().velocity = v;
 			}
+			rb.velocity = new Vector2(rb.velocity.x, -1);
+
 
 		}
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -71,7 +73,7 @@ public class Controller : MonoBehaviour
 				if (timePerJump < 400)
 				{
 					// timePerJump += 4;
-					timePerJump += timePerJump * Time.deltaTime;
+					timePerJump += Time.deltaTime;
 				}
 			}
 		}
@@ -192,7 +194,7 @@ public class Controller : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == "floor")
+		if (other.gameObject.tag == "floor" || other.gameObject.tag == "climeBeam")  //hasmap :3
 		{
 
 
