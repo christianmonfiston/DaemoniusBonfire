@@ -7,11 +7,13 @@ public class BetterJumps : MonoBehaviour
 	// Start is called before the first frame update
 	private Rigidbody2D rb;
 	public float velocityY;
+	public Vector2 velocity;
 	private float targetVelocity;
 	public float jumpForce = 7.0f;
 	public float jumpTime = 7.0f;
 	public bool isJumping;
 	public bool isGrounded = false;
+	// private float TargetVelocity;
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -22,50 +24,58 @@ public class BetterJumps : MonoBehaviour
 	void Update()
 	{
 		rb = GetComponent<Rigidbody2D>();
-
-		// targetVelocity = rb.velocity.y * velocityY;
-		// rb.velocity = new Vector2(rb.velocity.x, targetVelocity);
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			if (isGrounded)
-			{
-				isJumping = true;
-
-			}
-		}
+		CalcTargetVelocity();
 		if (Input.GetKey(KeyCode.S))
 		{
-			rb.velocity = new Vector2(rb.velocity.x, -1.0f);
+			if (rb.velocity.y > -0.00001f)
+				rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * -1.0f);
+		}
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			if (isGrounded && !isJumping)
+			{
+				isJumping = true;
+				jumpTime = 7.0f;
+
+			}
 		}
 		if (Input.GetKey(KeyCode.Space))
 		{
 			if (isJumping)
 			{
-
-				if (jumpTime > 8.0f)
-				{
-					// jumpTime = 9.0f;
-					// rb.velocity = new Vector2(rb.velocity.x, -jumpTime);
-					isJumping = false;
-					jumpTime = 7.0f;
-					return;
-				}
-				jumpTime += Time.deltaTime;
-				rb.velocity = new Vector2(rb.velocity.x, jumpTime);
+				HandleJump();
 			}
 		}
 		else
 		{
 			isJumping = false;
-			jumpTime = 7.0f;
-
 		}
-		// else
-		// {
-		// 	jumpTime = 7.0f;
-		// }
 		isGrounded = (int)rb.velocity.y < 2.0f && (int)rb.velocity.y > -2.0f;
 
 	}
+	public void HandleJump()
+	{
+		if (jumpTime > 7.5f)
+		{
+			// jumpTime = 9.0f;
+			// rb.velocity = new Vector2(rb.velocity.x, -jumpTime);
+			isJumping = false;
+			jumpTime = 7.0f;
+			// rb.velocity = new Vector2(rb.velocity.x, -jumpTime);
+			return;
+		}
+		jumpTime += Time.deltaTime;
+		rb.velocity = new Vector2(rb.velocity.x, jumpTime);
+	}
+	public void HandleDash()
+	{
 
+	}
+	public void CalcTargetVelocity()
+	{
+		targetVelocity = 8.0f * Input.GetAxisRaw("Horizontal");
+		rb.velocity = new Vector2(targetVelocity, rb.velocity.y);
+		GetComponent<SpriteRenderer>().flipX = targetVelocity > 0;
+
+	}
 }

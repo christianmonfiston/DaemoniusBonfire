@@ -18,21 +18,20 @@ public class ClimableWall : MonoBehaviour
 	}
 	private void OnCollisionStay2D(Collision2D other)
 	{
-		Debug.Log(other.gameObject.tag);
+		// Debug.Log(other.gameObject.tag);
 
 		if (other.gameObject.tag == "climeBeam")
 		{
 			Vector3 hit = other.contacts[0].normal;
 			float angle = Vector3.Angle(hit, Vector3.up);
-			Debug.Log(angle);
+			// Debug.Log(angle);
 			if (Mathf.Approximately(angle, 90) && Input.GetKey(KeyCode.F))
 			{
 
-				rb.velocity = new Vector2(rb.velocity.x, 2.0f);
+				rb.velocity = new Vector2(rb.velocity.x, 1.5f);
 				if (Input.GetKey(KeyCode.RightShift))
 					rb.velocity = new Vector2(rb.velocity.x, 0.0f);
-
-				Debug.Log("can climb");
+				// Debug.Log("can climb");
 			}
 
 		}
