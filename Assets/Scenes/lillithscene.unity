@@ -387,13 +387,14 @@ GameObject:
   - component: {fileID: 401099524}
   - component: {fileID: 401099523}
   - component: {fileID: 401099530}
+  - component: {fileID: 401099531}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &401099523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,7 +434,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401099522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8637bf11fcb89ea4bb003f106ff1d1d9, type: 3}
   m_Name: 
@@ -573,6 +574,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e4bc688569759409bb6404fc0f84db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &401099531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401099522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d75f8957151b443a8443a1e46a2f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityY: 0
+  velocity: {x: 0, y: 0}
+  jumpForce: 7
+  jumpTime: 7
+  isJumping: 0
+  isGrounded: 0
+  animator: {fileID: 401099524}
 --- !u!1 &645885129
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &645885130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -633,8 +653,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -653,8 +673,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645885129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.480637, y: 2.843156, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -9.29, y: 2.56, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -719,10 +739,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityY: 0
-  jumpForce: 0
+  velocity: {x: 0, y: 0}
+  jumpForce: 7
   jumpTime: 7
   isJumping: 0
   isGrounded: 0
+  animator: {fileID: 0}
 --- !u!114 &645885135
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class BetterJumps : MonoBehaviour
 	public float jumpTime = 7.0f;
 	public bool isJumping;
 	public bool isGrounded = false;
+	public Animator animator;
 	// private float TargetVelocity;
 	void Start()
 	{
@@ -23,6 +24,9 @@ public class BetterJumps : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		animator.SetBool("isJumping", isJumping || !isGrounded); // is Jumping or is Falling
+		animator.SetFloat("walk", Mathf.Abs(rb.velocity.x)); //I couldnt help myself T~T
+
 		rb = GetComponent<Rigidbody2D>();
 		CalcTargetVelocity();
 		if (Input.GetKey(KeyCode.S))
@@ -73,9 +77,12 @@ public class BetterJumps : MonoBehaviour
 	}
 	public void CalcTargetVelocity()
 	{
+
 		targetVelocity = 8.0f * Input.GetAxisRaw("Horizontal");
 		rb.velocity = new Vector2(targetVelocity, rb.velocity.y);
-		GetComponent<SpriteRenderer>().flipX = targetVelocity > 0;
+		if (targetVelocity > 1) GetComponent<SpriteRenderer>().flipX = false;
+		if (targetVelocity < -1) GetComponent<SpriteRenderer>().flipX = true;
+		// GetComponent<SpriteRenderer>().flipX = targetVelocity > 0;
 
 	}
 }

@@ -158,7 +158,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: walk
-    m_EventTreshold: 0.01
+    m_EventTreshold: 2
   - m_ConditionMode: 2
     m_ConditionEvent: isJumping
     m_EventTreshold: 0
