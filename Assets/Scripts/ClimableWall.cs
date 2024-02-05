@@ -14,7 +14,7 @@ public class ClimableWall : MonoBehaviour
 	}
 	void Update()
 	{
-
+		
 	}
 	private void OnCollisionStay2D(Collision2D other)
 	{
