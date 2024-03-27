@@ -45,7 +45,7 @@ TextureImporter:
       213: -8304377050742811733
     second: Spritesheet Attack (Sword)_13
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,10 +62,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -104,6 +106,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -115,6 +119,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -127,6 +132,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -436,9 +455,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Spritesheet Attack (Sword)_0: 9025506528234460423
+      Spritesheet Attack (Sword)_1: -1511296938842967582
+      Spritesheet Attack (Sword)_10: -8480255549645185121
+      Spritesheet Attack (Sword)_11: -7678033440161055507
+      Spritesheet Attack (Sword)_12: -9178232307793808338
+      Spritesheet Attack (Sword)_13: -8304377050742811733
+      Spritesheet Attack (Sword)_2: -2474757073053058048
+      Spritesheet Attack (Sword)_3: -582830837907027357
+      Spritesheet Attack (Sword)_4: -1339762371485905337
+      Spritesheet Attack (Sword)_5: -4831402013486060061
+      Spritesheet Attack (Sword)_6: -7684523494846051579
+      Spritesheet Attack (Sword)_7: -4312555474224722666
+      Spritesheet Attack (Sword)_8: 6674735681254288247
+      Spritesheet Attack (Sword)_9: -3187030195093995206
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
